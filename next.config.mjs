@@ -2,6 +2,10 @@
 const nextConfig = {
   /* config options here */
   reactCompiler: true,
+    images: {
+    domains: ['res.cloudinary.com', 'localhost'],
+  },
+
 };
 
 export default nextConfig;
