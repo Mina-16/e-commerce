@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
-import ProductApis from '@/app/-utils/ProductApis';
+import ProductApis from '../../../app/-utils/ProductApis';
 import ProductBanner from './_component/ProductBanner';
 import ProductInfo from './_component/ProductInfo';
 
@@ -21,7 +21,7 @@ function ProductDetails() {
       .then(res => {
         console.log("FULL RESPONSE:", res.data);
 
-        const product = res.data.data?.[0]; // ✅ ناخد أول عنصر
+        const product = res.data.data?.[0];
         console.log("PRODUCT:", product);
 
         setProductDetails(product);
@@ -51,15 +51,11 @@ function ProductDetails() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-around items-center mt-10">
-      {productDetails ? (
-        <>
+    <div className="flex flex-col md:flex-row justify-center items-center gap-4 mt-10">
+
           <ProductBanner product={productDetails} />
           <ProductInfo product={productDetails} />
-        </>
-      ) : (
-        <p>Loading...</p>
-      )}
+
     </div>
   );
 }

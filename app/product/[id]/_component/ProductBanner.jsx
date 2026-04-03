@@ -8,22 +8,22 @@ function ProductBanner({ product }) {
 
   console.log("IMAGE URL:", imageUrl);
 
-  if (!imageUrl) return <p>No Image Found</p>;
+  // if (!imageUrl) return <p>No Image Found</p>;
 
   return (
     <div>
-      {/* ✅ للتأكد */}
-      <img src={imageUrl} alt="banner" width={400} />
-
-      {/* بعد التأكد شغال */}
-      {/*
-      <Image
+      
+      {imageUrl? <Image
         src={imageUrl}
         alt="banner"
         width={400}
         height={400}
+        className='rounded-lg'
       />
-      */}
+      :
+
+      <div className='w-[400px] h-[250px] bg-slate-200 animate-pulse rounded-lg'></div>}
+     
     </div>
   );
 }
